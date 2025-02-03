@@ -34,8 +34,22 @@
                      <li><a href="about.html">About</a></li>
                      <li><a href="services.html">Services</a></li>
                      <li><a href="blog.html">Blog</a></li>
-                     <li><a href="contact.html">Contact us</a></li>
+                     
+                     @if (Route::has('login')) 
+                      @auth
+                      <li>
+                          <x-app-layout>
+                          </x-app-layout>
+                      </li>
+                        
+                    @else       
+                        <li><a href="{{route('login')}}">Login</a></li>
+                        <li><a href="{{route('register')}}">Register</a></li>
+
+                      @endauth
+                     @endif
                   </ul>
                </div>
             </div>
          </div>
+         
