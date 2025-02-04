@@ -21,7 +21,7 @@ class HomeController extends Controller
             return view('home.homepage');
         } 
         elseif ($usertype == 'admin') {
-            return view('admin.index');
+            return view('admin.adminhome');
         } 
         else {
             return redirect()->back();
