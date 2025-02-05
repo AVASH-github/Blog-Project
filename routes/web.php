@@ -17,3 +17,7 @@ Route::get('/',[HomeController::class,'homepage']);
 // });
 
 Route::get('/admin',[AdminController::class,'index'])->name('home');
+
+
+Route::get('/post_page',[AdminController::class,'post_page']);
+Route::post('/add_post',[AdminController::class,'add_post']);
