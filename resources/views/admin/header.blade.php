@@ -135,7 +135,7 @@
             <div class="list-inline-item logout">  
                          
            <x-app-layout>
-            </x-app-layout>
+          </x-app-layout>
  
            </a></div>
           </div>
