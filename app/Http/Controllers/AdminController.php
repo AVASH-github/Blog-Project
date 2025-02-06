@@ -20,7 +20,7 @@ class AdminController extends Controller
 
     public function add_post(Request $request)
     {
-            $user=Auth()->user();
+            $user=Auth::user() ;
 
             $userid = $user->id;
             $user_name = $user->name;
@@ -55,6 +55,17 @@ class AdminController extends Controller
 
             return redirect()->back()->with('message','Post Added Successfully');
     }
+
+        public function show_post()
+        {
+
+                $post= Post::all();
+
+
+
+            return view('admin.show_post',compact('post'));
+        }
+
     public function index()
     {
         if (!Auth::check()) {  // Redirect if not authenticated
