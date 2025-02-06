@@ -12,6 +12,13 @@
       <!-- Sidebar Navigation end -->
 
       <div class="p-2 p-10 page-content">
+      @if(session()->has('message'))
+
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+            {{session()->get('message')}}
+        </div> 
+        @endif
          <h1 style="font-size:40px; color: white; font-weight: bold;text-align:center; padding: 10px;">All Posts</h1>
 
      <div class="overflow-x-auto">
@@ -24,6 +31,7 @@
                 <th class="px-4 py-2 text-center border border-gray-600">Post Status</th>
                 <th class="px-4 py-2 text-center border border-gray-600">User Type</th>
                 <th class="px-4 py-2 text-center border border-gray-600">Image</th>
+                <th class="px-4 py-2 text-center border border-gray-600">Action</th>
             </tr>
         </thead>
 
@@ -39,6 +47,10 @@
                     <img src="postimage/{{ $post->image }}" 
                          alt="Post Image" 
                          class="object-cover w-24 h-16 mx-auto border border-gray-500 rounded-md shadow-md mr">
+                </td>
+
+                <td class="px-4 py-2 mr-2 text-center border border-gray-600">
+                    <a href="{{url('delete_post',$post->id)}}" class="btn btn-danger" onclick="return confirm('Are Your Sure To Delete This?')">Delete</a>
                 </td>
             </tr>
             @endforeach
