@@ -11,7 +11,7 @@
                      <h4>{{$post->title}}</h4>
                      
                      <p>Post by <b>{{$post->name}}</b></p>
-                     <div class="btn_main"><a href="#">Read More</a></div>
+                     <div class="btn_main"><a href="{{url('post_details',$post->id)}}">Read More</a></div>
                   </div>
       
                     @endforeach
