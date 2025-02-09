@@ -2,34 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
     public function index()
-    {
-        if (!Auth::check()) {  // Check if the user is not authenticated
-            return redirect()->route('login'); // Redirect to login page (Change 'login' to your actual route)
+    {   
+        if (Auth::check()) { // Check if the user is authenticated
+            $usertype = Auth::user()->usertype; // Get the user type
+    
+            if ($usertype === 'admin') {
+                $post = Post::all(); // Fetch posts for admin
+                return view('admin.adminhome', compact('post')); // Pass $posts to admin view
+            } else { // Default to user homepage
+                $post = Post::all(); // Fetch posts for users
+                return view('home.homepage', compact('post')); // Pass $posts to user view
+            }
         }
-
-        $usertype = Auth::user()->usertype; // Get the user type
-
-        if ($usertype == 'user') {
-        
-            return view('home.homepage');
-        } 
-        elseif ($usertype == 'admin') {
-            return view('admin.adminhome');
-        } 
-        else {
-            return redirect()->back();
-        }
+    
+        return redirect()->route('login'); // Redirect to login if not authenticated
     }
 
     public function homepage()
     {
-        return view('home.homepage');
+        $posts = Post::all();
+        return view('home.homepage', compact('posts'));
     }
 }
