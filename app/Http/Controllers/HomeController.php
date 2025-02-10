@@ -17,7 +17,7 @@ class HomeController extends Controller
             $usertype = Auth::user()->usertype; // Get the user type
     
             if ($usertype === 'admin') {
-                $post = Post::all(); // Fetch posts for admin
+                $post = Post::where('post_status','=','active')->get(); // Fetch posts for admin
                 return view('admin.adminhome', compact('post')); // Pass $posts to admin view
             } else { // Default to user homepage
                 $post = Post::all(); // Fetch posts for users
@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function homepage()
     {
-        $post = Post::all();
+        $post = Post::where('post_status','=','active')->get();
         return view('home.homepage', compact('post'));
     }
 

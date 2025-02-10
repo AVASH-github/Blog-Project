@@ -122,4 +122,26 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
+
+    public function accept_post($id)
+    {
+        $data = Post::find($id);
+
+        $data->post_status = 'active';
+        
+        $data ->save();
+
+        return redirect()->back()->with('message','Post Status Changed to Active');
+
+    }
+
+    public function reject_post($id)
+    {
+        $data = Post::find($id);
+
+        $data->post_status='rejected';
+        $data->save();
+
+        return redirect()->back()->with('message','Post Status Changed to Reject');
+    }
 }
