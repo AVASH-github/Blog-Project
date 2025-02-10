@@ -41,7 +41,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">{{$post->title}}</h4>
                                 <p class="card-text">{{ Str::limit($post->description, 100) }}</p>
-
+                                <a href="{{ url('post_update_page', $post->id) }}" class="btn btn-primary mt-3">Edit</a>
                                 <!-- Fixed Delete Button with Confirmation -->
                                 <a href="{{ url('my_post_del', $post->id) }}" class="btn btn-danger mt-3"
                                    onclick="return confirm('Are you sure you want to delete this post?');">Delete</a>
