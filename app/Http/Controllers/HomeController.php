@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
 
 class HomeController extends Controller
 {
@@ -75,6 +78,8 @@ class HomeController extends Controller
      
 
         $post->save();
+
+        Alert::success('Congrats','You have Added the data Successfully');
 
         return redirect()->back()->with('message','Post Added Successfully');
 
