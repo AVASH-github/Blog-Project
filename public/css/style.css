@@ -435,6 +435,7 @@ button {
     width: 100%;
     float: left;
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .btn_main {

@@ -7,10 +7,10 @@
 <body class="flex flex-col min-h-screen text-white bg-gray-900">
 
     @include('admin.header')
-
-    <div class="flex flex-1">
+<div class="d-flex align-items-stretch">
         <!-- Sidebar -->
         @include('admin.sidebar')
+ <div class="page-content">
 
         <!-- Main Content -->
         <div class="flex-1 p-6">
@@ -53,8 +53,8 @@
                             <td class="px-4 py-2 text-center border border-gray-600">
                                 <a href="{{ url('edit_page', $post->id) }}" class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">Edit</a>
                                 <a href="{{ url('delete_post', $post->id) }}" 
-                                   class="px-4 py-2 m-2 text-white bg-red-600 rounded-md hover:bg-red-700" 
-                                   onclick="confirmation(event)">Delete</a>
+                                   class="px-4 py-2 m-2 text-white bg-red-600 rounded-md hover:bg-red-700" >
+                                   Delete</a>
                             </td>
                             <td class="px-4 py-2 text-center border border-gray-600">
                                 <a href="{{url('accept_post', $post->id)}}" class="px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600" onclick="return confirm('Are you Sure To Accept?')">Accept</a>
@@ -66,29 +66,14 @@
             </table>
         </div> <!-- Content End -->
     </div> <!-- Sidebar and Content end -->
-
+</div>
     <!-- Footer -->
     <footer class="py-3 text-center text-white bg-gray-800">
         © 2025 Your Website. All Rights Reserved.
     </footer>
 
     <script>
-        function confirmation(ev) {
-            ev.preventDefault();
-            var urlToRedirect = ev.currentTarget.getAttribute('href');  
-            swal({
-                title: "Are You Sure To Delete This Post?",
-                text: "You will not be able to revert this!!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willCancel) => {
-                if (willCancel) {
-                    window.location.href = urlToRedirect;
-                }
-            });
-        }
+       
     </script>
 
 </body>
