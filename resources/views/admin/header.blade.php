@@ -70,7 +70,7 @@
             <div class="list-inline-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="nav-link">Mega <i class="fa fa-ellipsis-v"></i></a>
               <div class="dropdown-menu megamenu">
                 <div class="row">
-                  <div class="col-lg-3 col-md-6"><strong class="text-uppercase">Elements Heading</strong>
+                  <div class="col-lg-3 col-md-6"><strong class="text-uppercase">Element Heading</strong>
                     <ul class="mb-3 list-unstyled">
                       <li><a href="#">Lorem ipsum dolor</a></li>
                       <li><a href="#">Sed ut perspiciatis</a></li>
